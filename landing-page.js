@@ -223,28 +223,30 @@ function determineToggleType(droplink) {
 
 
 
-// EVENT LISTENERS
-
-window.addEventListener("resize", menuTypeQuery);
-
-[...CURRENCY_BUTTONS].map(button => button.addEventListener("change", getInput));
-
-// document.getElementById("transfer-speed").addEventListener("change", setArrivalTime);
-
-document.getElementById("show-fee-button").addEventListener("click", toggleFeeBreakdown);
-
-[...MAIN_TABS].map(tab => tab.addEventListener("click", openTab));
-
-[...MOBILE_MENU_TOGGLES].map(function(toggle) {
-  toggle.addEventListener("click", toggleMobileMenu);
-  toggle.addEventListener("click", closeDropLinks);
-});
 
 
 
 
 // WINDOW.ONLOAD/PAGE SETUP
 window.onload = function() {
+  
+  // EVENT LISTENERS
+
+  window.addEventListener("resize", menuTypeQuery);
+
+  [...CURRENCY_BUTTONS].map(button => button.addEventListener("change", getInput));
+
+  document.getElementById("transfer-speed").addEventListener("change", setArrivalTime);
+
+  document.getElementById("show-fee-button").addEventListener("click", toggleFeeBreakdown);
+
+  [...MAIN_TABS].map(tab => tab.addEventListener("click", openTab));
+
+  [...MOBILE_MENU_TOGGLES].map(function(toggle) {
+    toggle.addEventListener("click", toggleMobileMenu);
+    toggle.addEventListener("click", closeDropLinks);
+  });
+
   resetInput();
   menuTypeQuery();
 }
