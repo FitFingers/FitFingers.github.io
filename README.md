@@ -1,5 +1,4 @@
 # FitFingers.github.io
-My site.
 
 ----------
 
