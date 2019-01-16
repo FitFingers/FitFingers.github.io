@@ -135,7 +135,7 @@ function renderNewValues(input) {
   
   document.getElementById("total-savings").innerHTML =
     `${calculateSavings(input)} ${getSendCurrency()}`;
-  
+    
   OUTPUT_VALUE.value = calculateReceiveValue(input);
 }
 
@@ -168,10 +168,10 @@ function isInputInvalid(input) {
 
 function resetInput(val) {
   document.getElementById("input-value").placeholder = "1,000";
-  getInput();
+  runCalculator();
 }
 
-function getInput() {
+function runCalculator() {
   const INPUT_VALUE = document.getElementById("input-value").value || "1000";
   renderNewValues(INPUT_VALUE);
 }
@@ -200,7 +200,8 @@ function setArrivalTime() {
     ARRIVAL_TIME.innerHTML = `by ${(new Date().getDate() + 1)} ${MONTH[new Date().getMonth()]}`;
     // TO-DO: Must check if date works at end of month/year (potential bug for 30 Jan >> 31 Jan >> 1 Jan >> 2 Feb)
   }
-  renderNewValues();
+  // renderNewValues();
+  runCalculator();
 }
 
 // Determine the correct event and assign event listener to drop links
@@ -227,7 +228,7 @@ function determineToggleType(droplink) {
 
 window.addEventListener("resize", menuTypeQuery);
 
-[...CURRENCY_BUTTONS].map(button => button.addEventListener("change", getInput));
+[...CURRENCY_BUTTONS].map(button => button.addEventListener("change", runCalculator));
 
 document.getElementById("transfer-speed").addEventListener("change", setArrivalTime);
 
