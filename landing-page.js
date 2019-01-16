@@ -229,7 +229,7 @@ window.addEventListener("resize", menuTypeQuery);
 
 [...CURRENCY_BUTTONS].map(button => button.addEventListener("change", getInput));
 
-document.getElementById("transfer-speed").addEventListener("change", setArrivalTime);
+// document.getElementById("transfer-speed").addEventListener("change", setArrivalTime);
 
 document.getElementById("show-fee-button").addEventListener("click", toggleFeeBreakdown);
 
