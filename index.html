@@ -16,23 +16,25 @@
   <!--    -->
 
   <body>
+    
     <header>
-      <div id="mobile-menu-button"></div>
-      <i id="mobile-menu-icon" class="fas fa-chevron-circle-down"></i>
-
-
+      
       <h1>Hi,<br>I'm James:
         <br>A web developer
       </h1>
 
-      <h2>I design and build responsive websites.</h2>
+      <h2 id="design-heading">I design and build responsive websites.</h2>
 
     </header>
 
     <!--      -->
 
     <nav id="navbar">
-
+      <div id="mobile-menu-button">
+        <div id="mobile-menu-circle">
+          <i id="mobile-menu-icon" class="fas fa-chevron-circle-down"></i>
+        </div>
+      </div>
     </nav>
 
     <!--      -->
@@ -40,7 +42,7 @@
     <main>
 
       <section id="introduction">
-<!--         <h2>Me:</h2> -->
+
         <p>Based in Munich, Germany, I'm a Front-end Web Developer with a passion for building custom sites from HTML, CSS and JavaScript.</p>
 
         <p>If you're looking to hire for freelance or permanent work, you can find me <a href="#" id="intro-contact-link">here.</a></p>
@@ -49,13 +51,19 @@
 <!--        -->
       
       <section id="projects">
-        <h2>Projects:</h2>
+        <h2 id="projects-heading">Projects:</h2>
         
         <p>Don't be shy; feel free to click around.</p>
         
-        <figure id="TransferWise">
-          <figcaption></figcaption>
-        </figure>
+        <div id="project-container">
+          <div id="tw-clone" class="project">
+            <iframe src="https://fitfingers.github.io/TransferWise-CLONE/" frameborder="0">TransferWise Clone</iframe>
+            <h3>A personal practice project: recreating the TransferWise website (not my design).</h3>
+          </div>
+          
+          <div id="caesar-cipher" class="project">
+          </div>
+        </div>
       </section>
 
       
