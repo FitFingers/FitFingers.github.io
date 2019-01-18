@@ -12,6 +12,12 @@ body {
 :root {
   --bgcol: white;
   --maincol: #234;
+  --seccol: orange;
+}
+
+section {
+/*   background: orange; */
+  margin: 44px auto;
 }
 
 h1 {
@@ -20,7 +26,6 @@ h1 {
 }
 
 h2 {
-  margin: 22px auto 44px auto;
   font-size: 22px;
 }
 
