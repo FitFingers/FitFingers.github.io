@@ -17,7 +17,7 @@ body {
 
 section {
 /*   background: orange; */
-  margin: 44px auto;
+  margin: 44px initial;
 }
 
 h1 {
