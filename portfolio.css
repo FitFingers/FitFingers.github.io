@@ -11,6 +11,7 @@
 
 body {
   background: var(--bgcol);
+  margin: auto;
   min-width: 300px;
   max-width: 960px;
   overflow-x: hidden;
