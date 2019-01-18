@@ -1,732 +1,86 @@
-html,
-body {
-  overflow-x: hidden;
-  min-width: 318px;
+* {
+  font-family: Thasadith;
+  font-size: 20px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  font-family: Lato;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  color: white;
+body {
+  background: var(--bgcol);
+  min-width: 300px;
+  max-width: 960px;
 }
 
 :root {
-  --bgcol: #37517e;
-  --shapecol: #405f96;
-  --logocol: #00b9ff;
-  --hovercol: #00a4df;
-  --buttoncol: #2ed06e;
-  --linkcol: #f1f4f7;
-  --darkblue: #253756;
-}
-
-/* Background */
-
-#bg {
-  position: relative;
-  background: var(--bgcol);
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
-
-#bg-square {
-  background: var(--shapecol);
-  position: absolute;
-  bottom: -20px;
-  width: 550px;
-  height: 46vh;
-  z-index: 0;
-}
-
-#bg-square::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  border-left: 120px solid transparent;
-  border-bottom: 45vh solid var(--bgcol);
-}
-
-#bg-circle {
-  background: var(--shapecol);
-  position: absolute;
-  left: 60%;
-  bottom: -5vh;
-  height: 45vh;
-  width: 90vh;
-  border-top-left-radius: 90vh;
-  border-top-right-radius: 90vh;
-  z-index: 0;
-}
-
-#bg-circle::after {
-  content: "";
-  background: white;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 5vh;
-}
-
-/* Navigation bar */
-#navbar {
-  position: relative;
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  z-index: 3;
-}
-
-#mobile-menu-button {
-  display: none;
-  float: left;
-  background: url(https://archive.li/ktlVH/ea77e5dbf135f7cdb101213a677a98ba8c1f7c55.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: 6px -36px 0 -3.5%;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-}
-
-#transferwise-logo {
-  float: left;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/TransferWise_logo.svg/2000px-TransferWise_logo.svg.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: 13px -32px 0 0;
-  height: 20px;
-  width: 112px;
-}
-
-.mobile-menu-icons {
-  display: none;
-}
-
-#navbar-links {
-  display: inline-block;
-  float: right;
-  list-style: none;
-  font-size: 13px;
-  z-index: 3;
-}
-
-li {
-  display: inline-block;
-  padding: 17px 12px;
-  margin: 0 -2px;
-}
-
-.drop-down-link {
-  position: relative;
-  cursor: pointer;
-}
-
-#login-link:hover {
-  cursor: pointer;
-  color: var(--logocol);
-}
-
-.drop-link-content {
-  display: none;
-  position: absolute;
-  background: white;
-  padding: 8px;
-  margin-top: 15px;
-  right: 0;
-  border-radius: 3px;
-  box-shadow: 0 0 30px 8px rgba(0, 0, 0, 0.1);
-}
-
-.drop-link-content::after {
-  content: "▲";
-  position: absolute;
-  top: -11px;
-  right: 12px;
-  color: white;
-}
-
-.drop-link-content a {
-  display: block;
-  padding: 16px 12px;
-  white-space: nowrap;
-  border-radius: 3px;
-  text-decoration: none;
-  letter-spacing: 0.03em;
-  color: #283b60;
-}
-
-.drop-link-content a:hover {
-  background: var(--linkcol);
-}
-
-#signup-link {
-  background: #8797b2;
-  position: relative;
-  float: right;
-  padding: 6px 12px;
-  margin-top: 11px;
-  border-radius: 2px;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-#signup-link:hover {
-  background: var(--darkblue);
-  color: var(--logocol);
-}
-
-#mobile-menu-overlay {
-  background: black;
-  display: none;
-  position: fixed;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Main content: Hero page */
-#landing-page {
-  position: relative;
-  margin: 14vh auto 34px auto;
-  width: 90%;
-  max-width: 1100px;
-  z-index: 1;
-}
-
-#information-container {
-  float: left;
-  display: flex;
-  flex-direction: column;
-  margin-right: 2%;
-  width: 48%;
+  --bgcol: white;
+  --maincol: #234;
 }
 
 h1 {
-  font-size: 36px;
+  font-family: Aleo;
+  font-size: 32px;
 }
 
-h1::after {
-  content: ".";
-  color: var(--logocol);
-}
-
-#service-description {
-  margin: 4vh 0 6vh 0;
-  line-height: 22px;
-}
-
-#service-description p {
-  letter-spacing: 0.04em;
-}
-
-#information-container a {
-  color: var(--logocol);
-  font-weight: bold;
-}
-
-.how-it-works-button {
-  background: var(--bgcol);
-  padding: 12px;
-  line-height: 16px;
-  width: 150px;
-  border-radius: 3px;
-  border: 1px solid var(--logocol);
-  color: var(--logocol);
-  font-weight: bold;
-}
-
-.how-it-works-button:hover {
-  background: var(--logocol);
-  color: white;
-  cursor: pointer;
-}
-
-#accreditation-container {
-  margin: 100px 0 0 0;
-  width: 100%;
-  line-height: 22px;
-  font-weight: bold;
-}
-
-.accreditation {
-  width: 50%;
-  margin: 6px 0;
-}
-
-.accreditation figcaption {
-  margin: 3px;
-  width: 210px;
-}
-
-.accreditation img {
-  float: left;
-  margin-right: 10px;
-  height: 70px;
-  width: 70px;
-}
-
-#tuev-figure {
-  float: left;
-}
-
-#customer-figure {
-  float: right;
-}
-
-/* Right side of page */
-#floating-calculator {
-  background: var(--bgcol);
-  float: right;
-  margin: 0 0 34px 2%;
-  width: 48%;
-  overflow: hidden;
-  border-radius: 6px;
-  box-shadow: -2px -1px 40px 0 rgb(0, 0, 0, 0.15),
-    1px 3px 30px 0 rgb(55, 81, 126, 0.7);
-}
-
-#money-tab-container {
-  background: #253655;
-  display: flex;
-  justify-content: space-between;
-}
-
-.money-tab {
-  background: linear-gradient(35deg, #25375f, #2c4060);
-  padding: 20px 0;
-  line-height: 27px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  flex: 1;
-}
-
-.money-tab:hover {
-  background: var(--darkblue);
-}
-
-.tab-text {
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: bold;
-  color: white;
-}
-
-.tab-icon {
-  color: var(--logocol);
-}
-
-.selected-tab, .selected-tab:hover, .selected-tab p {
-  background: var(--bgcol);
-  color: white;
-}
-
-.tab-contents {
-  position: relative;
-  display: block;
-  margin: 34px;
-}
-
-#receive-money-tab-content {
-  display: none;
-  height: 340px;
-}
-
-#debit-card-tab-content {
-  display: none;
-  height: 360px;
-}
-
-.cash-value-box {
-  background: white;
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  border-radius: 4px;
-}
-
-.cash-value-box:hover {
-  box-shadow: 0 0 1px 1px var(--logocol);
-}
-
-.cash-value-box-error {
-  box-shadow: 0 0 0px 1.5px #C73B3B;
-}
-
-.cash-value-box p {
-  padding: 9px 7px 0 7px;
-  margin-left: 2px;
-  width: 70%;
-  font-size: 13px;
-  color: var(--shapecol);
-}
-
-.cash-value-box input[type="text"] {
-  padding: 0 7px 9px 7px;
-  width: 70%;
-  color: #2e4369;
+h2 {
+  margin: 22px auto 44px auto;
   font-size: 22px;
-  border: none;
-  border-radius: 4px;
 }
 
-.cash-value-box input[type="text"]::placeholder {
-  color: #2e4369;
-  opacity: 1;
-}
-
-.cash-value-box input[type="text"]:focus {
-  outline: none;
-}
-
-#receive-money-output-box {
-  margin-top: 6px;
-}
-
-#insufficient-amount-error {
-  display: none;
-  position: relative;
-  background: #FFDFDF;
-  border-radius: 0 0 3px 3px;
-}
-
-#insufficient-amount-error::before {
-  content: "▲";
-  position: absolute;
-  margin: -16px 0 0 16px;
-  color: #FFDFDF;
-}
-
-#insufficient-amount-error-text {
-  padding: 5px 15px;
-  width: 99%;
-  color: #C73B3B;
-}
-
-.currency-select {
-  background: #2e4369;
-  position: absolute;
-  right: 0;
-  padding: 18.5px 0;
-  width: 30%;
-  height: 100%;
-  cursor: pointer;
-  border: none;
-  border-radius: 0 3px 3px 0;
-  text-align-last: center;
-  font-size: 18px;
+p {
   font-weight: bold;
+  font-size: 16px;
 }
 
-#fee-bullet-point-line {
-  background: #253655;
-  position: absolute;
-  left: 16px;
-  top: 61px;
-  width: 2px;
-  height: 150px;
+a {
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
 }
 
-.fee-bullet-point-circle {
-  background: #253655;
+#mobile-menu-button {
+  background: var(--maincol);
+  position: fixed;
+  top: 2vw;
+  right: 2vw;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+#mobile-menu-button::before {
+  content: "";
+  background: white;
   position: absolute;
-  margin-left: -3px;
-  width: 8px;
-  height: 8px;
+  top: 4vw;
+  right: 4vw;
+  width: 102px;
+  height: 102px;
   border-radius: 50%;
 }
 
-#fee-bullet-point-1 {
-  margin-top: 60px;
+#mobile-menu-icon {
+  position: fixed;
+  right: 13vw;
+  top: 13vw;
+  font-size: 2.6em;
+  color: var(--bgcol);
 }
 
-#fee-bullet-point-2 {
-  margin-top: 90px;
+#mobile-menu-icon:hover {
+  animation-name: mobile-menu-hover;
+  animation-duration: 1200ms;
+  color: var(--maincol);
 }
 
-#fee-bullet-point-3 {
-  margin-top: 120px;
+@keyframes mobile-menu-hover {
+  0% { color: white; }
+  100% { color: var(--maincol); }
 }
 
-#fee-breakdown-grid {
-  display: grid;
-  grid-template-columns: max-content auto;
-  grid-template-rows: 30px 0px 30px;
-  margin-left: 30px;
+#introduction {
+  max-width: 356px;
 }
 
-#show-fee-button {
-  position: relative;
-  display: inline-block;
-  margin: 16px 9px;
-  cursor: pointer;
-  font-weight: bold;
-  color: var(--logocol);
-}
-
-#show-fee-button::before {
-  content: "▼ ";
-}
-
-#fee-value {
-  font-weight: bold;
-}
-
-.fee-details {
-  visibility: hidden;
-}
-
-#fee-breakdown-grid select {
-  background: #2e4369;
-  padding: 5px;
-  margin-top: -5px;
-  margin-right: 3px;
-  cursor: pointer;
-  border: none;
-  border-radius: 2px;
-  font-size: 13px;
-}
-
-#fee-breakdown-grid a {
-  text-decoration: none;
-  border-bottom: 1px dotted var(--logocol);
-  color: #d3d5d8;
-}
-
-#amount-to-convert {
-  margin-right: 5px;
-}
-
-#savings-container p {
-  margin: 20px 0;
-  line-height: 22px;
-}
-
-#compare-get-started-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 34px;
-}
-
-#compare-button,
-#get-started-button {
-  flex: 1;
-  padding: 13px;
-  min-height: 40px;
-  cursor: pointer;
-  border: none;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
-#compare-button {
-  background: var(--logocol);
-  margin-right: 10px;
-}
-
-#compare-button:hover {
-  background: #00a4df;
-}
-
-#get-started-button {
-  background: var(--buttoncol);
-  margin-left: 10px;
-}
-
-#get-started-button:hover {
-  background: #28b862;
-}
-
-#how-it-works-mobile-button {
-  display: none;
-  margin: auto;
-}
-
-/* Media queries */
-@media only screen and (max-width: 925px) {
-  #transferwise-logo {
-    background-image: url(https://s3-us-west-1.amazonaws.com/chuladoblog/blog/wp-content/uploads/20181030041255/transferwise-logo.png);
-    width: 22px;
-    height: 22px;
-  }
-
-  li {
-    padding-left: 0;
-  }
-
-  h1 {
-    margin-bottom: 30px;
-  }
-
-  #service-description,
-  #how-it-works-laptop-button,
-  #accreditation-container,
-  #bg-square,
-  #bg-circle {
-    display: none;
-  }
-
-  #landing-page {
-    width: 80%;
-  }
-
-  #information-container {
-    float: none;
-    width: 100%;
-    align-items: center;
-  }
-
-  #floating-calculator {
-    float: none;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  #how-it-works-mobile-button {
-    display: block;
-  }
-}
-
-/* Media queries: mobile screens */
-@media only screen and (max-width: 710px) {
-  #transferwise-logo {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/TransferWise_logo.svg/2000px-TransferWise_logo.svg.png);
-    margin-left: 32px;
-    height: 20px;
-    width: 112px;
-  }
-
-  #mobile-menu-button {
-    display: inline-block;
-  }
-  
-  #mobile-menu-close {
-    position: absolute;
-    display: none;
-    top: 10px;
-    left: 260px;
-    color: var(--logocol);
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 3;
-  }
-  
-  #mobile-menu-close:hover {
-    color: #0082ce;
-  }
-  
-  #navbar-links {
-    background: white;
-    display: none;
-    position: fixed;
-    float: none;
-    top: 0;
-    left: 0;
-    padding: 6px;
-    height: 100vh;
-    width: 276px;
-  }
-  
-  #navbar-links li {
-    display: block;
-    padding: 18px 26px;
-    margin-top: -8px;
-    border-bottom: thin solid var(--linkcol);
-    color: var(--bgcol);
-    font-size: 16px;
-    text-align: left;
-  }
-  
-  #navbar-links li:focus {
-    outline: none;
-  }
-  
-  .mobile-menu-icons {
-    display: inline-block;
-    margin-right: 6px;
-    font-size: 22px;
-    color: var(--bgcol);
-  }
-  
-  .drop-link-content {
-    display: none;
-    position: relative;
-    margin: 8px -20px -16px -20px;
-    box-shadow: none;
-    font-size: 14px;
-  }
-  
-  .drop-link-content a {
-    padding: 10px 12px;
-  }
-
-  #signup-link {
-    margin: 11px 0;
-  }
-
-  h1 {
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 38px;
-  }
-
-  p, #fee-breakdown-grid {
-    font-size: 13px;
-  }
-  
-  .tab-icon {
-    font-size: 16px;
-  }
-
-  #fee-breakdown-grid select {
-    margin-top: 0px;
-    font-size: 12px;
-  }
-
-  #fee-breakdown-grid {
-    grid-template-columns: 88px auto;
-    align-items: center;
-  }
-
-  #show-fee-button {
-    margin-left: 11px;
-  }
-
-  #compare-get-started-container {
-    flex-direction: column;
-  }
-
-  #compare-button,
-  #get-started-button {
-    margin: 0 0 10px 0;
-  }
-
-  #how-it-works-mobile-button {
-    margin-top: -14px;
-  }
-}
-
-@media only screen and (max-width: 570px) {
-  #landing-page {
-    width: 100%;
-  }
-
-  #information-container {
-    padding: 0 3%;
-  }
-
-  .tab-contents {
-    margin: 34px 8px;
-  }
-  
-  .tab-text {
-    font-size: 13px;
-  }
+#intro-contact-link:hover {
+  background: yellow;
 }
