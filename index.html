@@ -7,7 +7,7 @@
     <title>James Hooper | Web Developer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--     <meta name="description" content="James Hooper: English web developer based in Munich, Germany. I create accessible and search engine-friendly website solutions for small businesses."> -->
+    <meta name="description" content="James Hooper: English web developer based in Munich, Germany. I create accessible and search engine-friendly website solutions for small businesses.">
     <link href="https://fonts.googleapis.com/css?family=Aleo|Thasadith" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="portfolio.css" rel="stylesheet" type="text/css">
@@ -16,62 +16,57 @@
   <!--    -->
 
   <body>
-    
-    <header>
-      
-      <h1>Hi,<br>I'm James:
-        <br>A web developer
-      </h1>
 
-      <h2 id="design-heading">I design and build responsive websites.</h2>
+    <section id="landing-page">
+      <header>
+        <h1>Hi,<br>I'm James:<br>A web developer.</h1>
 
-    </header>
+        <h2>I design and build responsive websites.</h2>
+      </header>
+    </section>
 
-    <!--      -->
+    <section id="about-me">
+<!--       <span><h2 class="section-heading">Who is this guy?</h2></span> -->
+      <div id="about-me-grid">
+        <div id="about-me-photo" class="about-item"><img src="http://i65.tinypic.com/2zs9yso.jpg" alt="Me, smiling because you hired me."></div>
+        
+        <div id="introduction" class="about-item">
+          <p>Based in Munich, Germany, I'm a Front-end Web Developer with a passion for building custom sites from HTML5, CSS3 and JavaScript.</p>
 
-    <nav id="navbar">
-      <div id="mobile-menu-button">
-        <div id="mobile-menu-circle">
-          <i id="mobile-menu-icon" class="fas fa-chevron-circle-down"></i>
+          <p>When I'm not coding, you'll find me playing music, drinking at an open stage or hiking in the mountains.</p>
+
+<!--           <p>If you're looking to hire for freelance or permanent work, you can find me <a href="#" id="intro-contact-link">here.</a></p> -->
         </div>
       </div>
-    </nav>
-
-    <!--      -->
-
-    <main>
-
-      <section id="introduction">
-
-        <p>Based in Munich, Germany, I'm a Front-end Web Developer with a passion for building custom sites from HTML, CSS and JavaScript.</p>
-
+      
+      <div id="contact-me">
         <p>If you're looking to hire for freelance or permanent work, you can find me <a href="#" id="intro-contact-link">here.</a></p>
-      </section>
-
-<!--        -->
-      
-      <section id="projects">
-        <h2 id="projects-heading">Projects:</h2>
+      </div>
+    </section>
+    
+    <section id="my-work">
+      <span><h2 class="section-heading">Some of the stuff I've done:</h2></span>
+      <div id="project-container">
         
-        <p>Don't be shy; feel free to click around.</p>
-        
-        <div id="project-container">
-          <div id="tw-clone" class="project">
-            <iframe src="https://fitfingers.github.io/TransferWise-CLONE/" frameborder="0">TransferWise Clone</iframe>
-            <h3>A personal practice project: recreating the TransferWise website (not my design).</h3>
-          </div>
-          
-          <div id="caesar-cipher" class="project">
-          </div>
+        <div id="tw-project" class="project">
+          <img src="http://i67.tinypic.com/zswcoz.png" alt="tw-project-screenshot">
         </div>
-      </section>
+        
+        <div id="register-project" class="project">
+          <img src="http://i67.tinypic.com/f39rba.png" alt="cash-register-project-screenshot">
+        </div>
+        
+        <div id="caesar-project" class="project">
+          <img src="http://i63.tinypic.com/2jdfihg.png" alt="caesar-cipher-project-screenshot">
+        </div>
+        
+      </div>
+    </section>
 
-      
-    </main>
-
-    <!--      -->
 
     <script src="#" type="text/js"></script>
   </body>
+
+  <!--    -->
 
 </html>
