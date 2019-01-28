@@ -94,12 +94,12 @@ body {
 #mobile-menu-button {
   display: none;
   float: left;
-  margin: 15px -54px 0 -2%;
+  margin: 16px -54px 0 -2%;
   font-size: 28px;
   cursor: pointer;
 }
 
-#transferwise-logo {
+#james-hooper-logo {
   float: left;
   background-image: url(https://i.ibb.co/1fw6BDB/logo-large-purple.png);
   background-size: contain;
@@ -132,11 +132,6 @@ li {
 .drop-down-link {
   position: relative;
   cursor: pointer;
-}
-
-#login-link:hover {
-  cursor: pointer;
-  color: var(--logocol);
 }
 
 .drop-link-content {
@@ -173,7 +168,7 @@ li {
   background: var(--linkcol);
 }
 
-#signup-link {
+#contact-link {
   background: var(--lightcol);
   position: relative;
   float: right;
@@ -184,7 +179,7 @@ li {
   font-weight: bold;
 }
 
-#signup-link:hover {
+#contact-link:hover {
   background: var(--darkcol);
   color: var(--logocol);
 }
@@ -245,7 +240,7 @@ h1::after {
   font-weight: bold;
 }
 
-.how-it-works-button {
+.find-me-button {
   background: var(--bgcol);
   padding: 12px;
   line-height: 16px;
@@ -257,15 +252,15 @@ h1::after {
   font-weight: bold;
 }
 
-.how-it-works-button:hover {
+.find-me-button:hover {
   background: var(--logocol);
   color: white;
   cursor: pointer;
 }
 
 #accreditation-container {
-  margin: 100px 96px 0 0;
-  width: 90%;
+  margin: 100px 86px 0 0;
+  width: 92%;
   line-height: 22px;
   font-weight: bold;
 }
@@ -280,19 +275,26 @@ h1::after {
   width: 210px;
 }
 
-.accreditation img {
+/* .accreditation img {
   float: left;
   margin-right: 10px;
   height: 70px;
   width: 70px;
-}
+} */
 
-#tuev-figure {
+#fast-figure {
   float: left;
 }
 
-#customer-figure {
+#learning-figure {
   float: right;
+}
+
+#accreditation-container i {
+  float: left;
+  padding: 7px 10px 7px 0;
+  font-size: 56px;
+  color: var(--logocol); //or white?
 }
 
 /* Right side of page */
@@ -370,6 +372,8 @@ h1::after {
   transform-origin: top left;
   width: 206%;
   min-height: 782px;
+  border: 3px solid var(--darkcol);
+  box-shadow: 0 0 30px 0px rgba(0,0,0,0.25);
 }
 
 #debit-card-tab-content {
@@ -577,14 +581,14 @@ h1::after {
   background: var(--getstartedhover);
 }
 
-#how-it-works-mobile-button {
+#find-me-mobile-button {
   display: none;
   margin: auto;
 }
 
 /* Media queries */
 @media only screen and (max-width: 925px) {
-  #transferwise-logo {
+  #james-hooper-logo {
     background-image: url("https://i.ibb.co/ZLXrtXx/logo-small-purple.png");
     width: 60px;
     height: 60px;
@@ -608,7 +612,7 @@ h1::after {
   }
 
   #service-description,
-  #how-it-works-laptop-button,
+  #find-me-laptop-button,
   #accreditation-container,
   #bg-square,
   #bg-circle {
@@ -631,14 +635,14 @@ h1::after {
     margin-left: 0;
   }
 
-  #how-it-works-mobile-button {
+  #find-me-mobile-button {
     display: block;
   }
 }
 
 /* Media queries: mobile screens */
 @media only screen and (max-width: 740px) {
-  #transferwise-logo {
+  #james-hooper-logo {
     background-image: url(https://i.ibb.co/1fw6BDB/logo-large-purple.png);
     margin-top: 12px;
     margin-left: 26px;
@@ -745,7 +749,7 @@ h1::after {
     margin: 0 0 10px 0;
   }
 
-  #how-it-works-mobile-button {
+  #find-me-mobile-button {
     margin-top: -14px;
   }
 }
