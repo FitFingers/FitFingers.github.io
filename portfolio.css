@@ -101,7 +101,7 @@ body {
 
 #james-hooper-logo {
   float: left;
-  background-image: url(https://i.ibb.co/1fw6BDB/logo-large-purple.png);
+  background-image: url(https://i.ibb.co/4gqRLks/logo-large-portfolio-purple-white.png);
   background-size: contain;
   background-repeat: no-repeat;
   margin: 13px -32px 0 0;
@@ -117,7 +117,7 @@ body {
   display: inline-block;
   float: right;
   margin-top: 6px;
-  margin-right: 6px;
+  margin-right: 16px;
   list-style: none;
   font-size: 13px;
   z-index: 3;
@@ -126,7 +126,7 @@ body {
 li {
   display: inline-block;
   padding: 17px 12px;
-  margin: 0 -2px;
+  margin: 0 4px;
 }
 
 .drop-down-link {
@@ -202,6 +202,7 @@ li {
 /* Main content: Hero page */
 #landing-page {
   position: relative;
+  display: flex;
   margin: 14vh auto 34px auto;
   width: 90%;
   max-width: 1100px;
@@ -226,16 +227,16 @@ h1::after {
   color: var(--logocol);
 }
 
-#service-description {
+.introduction {
   margin: 4vh 18.2% 6vh 0;
   line-height: 22px;
 }
 
-#service-description p {
+.introduction p {
   letter-spacing: 0.08em;
 }
 
-#information-container a {
+.logo-link {
   color: var(--logocol);
   font-weight: bold;
 }
@@ -294,7 +295,7 @@ h1::after {
   float: left;
   padding: 7px 10px 7px 0;
   font-size: 56px;
-  color: var(--logocol); //or white?
+  color: var(--logocol);
 }
 
 /* Right side of page */
@@ -309,13 +310,13 @@ h1::after {
     1px 3px 30px 0 rgb(109, 93, 108, 0.7);
 }
 
-#money-tab-container {
+#project-tab-container {
   background: var(--darkcol);
   display: flex;
   justify-content: space-between;
 }
 
-.money-tab {
+.project-tab {
   background: linear-gradient(35deg, var(--darkcol), var(--shapecol));
   padding: 20px 0;
   line-height: 27px;
@@ -325,7 +326,7 @@ h1::after {
   flex: 1;
 }
 
-.money-tab:hover {
+.project-tab:hover {
   background: var(--darkcol);
 }
 
@@ -353,9 +354,31 @@ h1::after {
   margin: 34px;
 }
 
-#receive-money-tab-content {
+#caesar-cipher-tab-content {
+  display: block;
+  margin-bottom: -128px;
+}
+
+#caesar-cipher {
+  -moz-transform: scale(0.8); 
+  -webkit-transform: scale(0.8); 
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8); 
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  width: 125%;
+  min-height: 786px;
+  border: 1px solid var(--darkcol);
+  box-shadow: 0 0 30px 0px rgba(0,0,0,0.25);
+}
+
+#cash-register-tab-content {
   display: none;
-  max-height: 384px;
+  margin-bottom: -360px;
 }
 
 #cash-register {
@@ -376,9 +399,20 @@ h1::after {
   box-shadow: 0 0 30px 0px rgba(0,0,0,0.25);
 }
 
-#debit-card-tab-content {
+#my-story-tab {
   display: none;
-  min-height: 360px;
+}
+
+#my-story-tab-content {
+  display: none;
+}
+
+/* #mobile-introduction {
+  display: none;
+} */
+
+#send-money-tab-content {
+  display: none;
 }
 
 .cash-value-box {
@@ -492,6 +526,10 @@ h1::after {
   margin-top: 120px;
 }
 
+#fee-breakdown-section {
+/*   margin-top: 3px; */
+}
+
 #fee-breakdown-grid {
   display: grid;
   grid-template-columns: max-content auto;
@@ -586,15 +624,18 @@ h1::after {
   margin: auto;
 }
 
-/* Media queries */
+
+
+/* MEDIA QUERIES */
 @media only screen and (max-width: 925px) {
   #james-hooper-logo {
-    background-image: url("https://i.ibb.co/ZLXrtXx/logo-small-purple.png");
-    width: 60px;
-    height: 60px;
+    background-image: url(https://i.ibb.co/zPbbyxZ/logo-small-portfolio-purple-white.png);
+    width: 70px;
+    height: 70px;
   }
   
   #landing-page {
+    display: block;
     margin-top: 12vh;
   }
 
@@ -602,16 +643,8 @@ h1::after {
     text-align: center;
     margin-bottom: 30px;
   }
-  
-  #navbar-links {
-    margin-right: 0;
-  }
 
-  li {
-    padding-left: 0;
-  }
-
-  #service-description,
+  #desktop-introduction,
   #find-me-laptop-button,
   #accreditation-container,
   #bg-square,
@@ -634,16 +667,31 @@ h1::after {
     width: 100%;
     margin-left: 0;
   }
-
-  #find-me-mobile-button {
+  
+  #my-story-tab, #find-me-mobile-button {
     display: block;
+  }
+  
+  #my-story-tab-content img {
+    float: right;
+    margin-left: 32px;
+    margin-bottom: 32px;
+    width: 50%;
+    height: auto;
+    border: 1px solid var(--darkcol);
+    border-radius: 7px;
+    box-shadow: 0 0 30px 2px rgba(0,0,0,0.35);
+  }
+  
+  #mobile-introduction {
+    margin: auto;
   }
 }
 
 /* Media queries: mobile screens */
 @media only screen and (max-width: 740px) {
   #james-hooper-logo {
-    background-image: url(https://i.ibb.co/1fw6BDB/logo-large-purple.png);
+    background-image: url(https://i.ibb.co/4gqRLks/logo-large-portfolio-purple-white.png);
     margin-top: 12px;
     margin-left: 26px;
     height: 38px;
@@ -675,7 +723,7 @@ h1::after {
     display: none;
     position: fixed;
     float: none;
-    top: 0;
+    top: -6px;
     left: 0;
     padding: 6px;
     height: 100vh;
@@ -724,6 +772,10 @@ h1::after {
   
   .tab-icon {
     font-size: 16px;
+  }
+  
+  #fee-breakdown-section {
+/*     margin-top: 0; */
   }
 
   #fee-breakdown-grid select {
