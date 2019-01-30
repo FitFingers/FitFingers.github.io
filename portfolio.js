@@ -6,7 +6,7 @@ const MOBILE_MENU_CLOSE = document.getElementById("mobile-menu-close");
 const NAVBAR_LINKS = document.getElementById("navbar-links");
 const DROP_LINK = document.getElementsByClassName("drop-down-link");
 const DROP_LINK_CONTENT = document.getElementsByClassName("drop-link-content");
-const MAIN_TABS = document.getElementsByClassName("money-tab");
+const MAIN_TABS = document.getElementsByClassName("project-tab");
 const TAB_CONTENTS = document.getElementsByClassName("tab-contents");
 const FEE_BREAKDOWN_GRID = document.getElementById("fee-breakdown-grid");
 const FEE_DETAILS = document.getElementsByClassName("fee-details");
@@ -239,12 +239,19 @@ function iFrameHeightPipe(event) {
   document.getElementById(event.data[0]).height = parseInt(event.data[1] * 0.48);
 }
 
+function hidePhoto() {
+  if (window.innerWidth >= 926) {
+    document.getElementById("my-story-tab-content").style.display = "none";
+  }
+}
+
 
 
 
 // EVENT LISTENERS
 
 window.addEventListener("resize", menuTypeQuery);
+window.addEventListener("resize", hidePhoto);
 window.addEventListener("resize", () => resizeiFrame("cash-register"));
 window.addEventListener("message", iFrameHeightPipe);
 
