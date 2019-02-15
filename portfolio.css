@@ -254,13 +254,12 @@ h1::after {
 
 .find-me-button {
   background: var(--bgcol);
-  padding: 12px;
-  line-height: 16px;
-  width: 150px;
-  border-radius: 4px;
+  padding: 14px;
+  width: 160px;
+  border-radius: 5px;
   border: 1px solid var(--logocol);
   color: var(--logocol);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
 }
 
@@ -368,12 +367,26 @@ h1::after {
   margin-bottom: -218px;
 }
 
+/* MIXIN FOR SASS
+@mixin scale($scale, $origin) {
+  -moz-transform: scale($scale); 
+  -webkit-transform: scale($scale); 
+  -o-transform: scale($scale);
+  -ms-transform: scale($scale);
+  transform: scale($scale);
+  -moz-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  transform-origin: $origin;
+} */
+
 #caesar-cipher {
   -moz-transform: scale(0.7); 
   -webkit-transform: scale(0.7); 
   -o-transform: scale(0.7);
   -ms-transform: scale(0.7);
-  transform: scale(0.7); 
+  transform: scale(0.7);
   -moz-transform-origin: top left;
   -webkit-transform-origin: top left;
   -o-transform-origin: top left;
