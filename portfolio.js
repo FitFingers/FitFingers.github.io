@@ -21,7 +21,6 @@ const ARRIVAL_TIME = document.getElementById("arrival-time");
 const CLICKABLE_OBJECTS = document.querySelectorAll("[tabindex]");
 const CASH_REGISTER = document.getElementById("cash-register");
 
-const REQ = new XMLHttpRequest();
 const BASE_CHARGE = 0.8;
 const MONTH = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const EXCHANGE_RATES = {
@@ -112,19 +111,28 @@ function getReceiveCurrency() {
 }
 
 // Maybe a better method would be, on the server-side, to update an EX_RATE object every x minutes and to then resend it to the client-side in bacthes every few minutes, rather than the client changing currencies and waiting a second or two between each change. This would mean the change is almost instant (as the data is stored on their computer) and improves UX and decrease the risk of the API being slow/overloaded/broken.
-function getExRate(value, callback) {
-  REQ.onload = () => {
-    if (REQ.readyState === 4 && REQ.status === 200) {
-      callback(value, REQ.response);
-    }
-  }
-  REQ.open("GET", `https://free.currencyconverterapi.com/api/v6/convert?q=${getSendCurrency()}_${getReceiveCurrency()}&compact=ultra&apiKey=4bee894984d26fd53193`, true);
-  REQ.send();
-}
+// function getExRate(value, callback) {
+//   REQ.onload = () => {
+//     if (REQ.readyState === 4 && REQ.status === 200) {
+//       callback(value, REQ.response);
+//     }
+//   }
+//   REQ.open("GET", `https://free.currencyconverterapi.com/api/v6/convert?q=${getSendCurrency()}_${getReceiveCurrency()}&compact=ultra&apiKey=4bee894984d26fd53193`, true);
+//   REQ.send();
+// }
 
-function setExRate(value, result) {
-  exRate = JSON.parse(result)[`${getSendCurrency()}_${getReceiveCurrency()}`].toFixed(5);
-  renderNewValues(value);
+// function setExRate(value, result) {
+//   exRate = JSON.parse(result)[`${getSendCurrency()}_${getReceiveCurrency()}`].toFixed(5);
+//   renderNewValues(value);
+// }
+
+// This asynchronous function makes the workflow much easier to work with/read than the previous XHR/callback method.
+async function setExchangeRate() {
+  const CURRENCIES = `${getSendCurrency()}_${getReceiveCurrency()}`;
+  await fetch(`https://free.currencyconverterapi.com/api/v6/convert?q=${CURRENCIES}&compact=ultra&apiKey=4bee894984d26fd53193`)
+  .then((response) => response.json())
+  .then((json) => exRate = json[CURRENCIES].toFixed(5));
+  runCalculator();
 }
 
 function calculateReceiveValue(val) {
@@ -191,8 +199,8 @@ function resetInput(val) {
 
 function runCalculator() {
   const INPUT_VALUE = document.getElementById("input-value").value || "1000";
-  // renderNewValues(INPUT_VALUE);
-  getExRate(INPUT_VALUE, setExRate);
+  renderNewValues(INPUT_VALUE);
+  // getExRate(INPUT_VALUE, setExRate);
 }
 
 function toggleFeeBreakdown() {
@@ -271,7 +279,7 @@ window.addEventListener("resize", hidePhoto);
 // window.addEventListener("resize", () => resizeiFrame("cash-register"));
 // window.addEventListener("message", iFrameHeightPipe);
 
-[...CURRENCY_BUTTONS].map(button => button.addEventListener("change", runCalculator));
+[...CURRENCY_BUTTONS].map(button => button.addEventListener("change", setExchangeRate));
 
 document.getElementById("transfer-speed").addEventListener("change", setArrivalTime);
 
@@ -291,7 +299,8 @@ document.getElementById("show-fee-button").addEventListener("click", toggleFeeBr
 
 // WINDOW.ONLOAD/PAGE SETUP
 window.onload = function() {
-  getExRate(setExRate);
+  // getExRate(setExRate);
+  setExchangeRate();
   resetInput();
   menuTypeQuery();
   // resizeiFrame("cash-register");
