@@ -34,6 +34,7 @@ let isFeeDetailVisible = false;
 let isMenuVisible = false;
 let menuType = "";
 let transferSpeed = 0.005;
+let tomorrow = new Date();
 
 
 
@@ -199,10 +200,9 @@ function setArrivalTime() {
     ARRIVAL_TIME.innerHTML = "in seconds!";
   } else {
     transferSpeed = 0.003;
-    ARRIVAL_TIME.innerHTML = `by ${(new Date().getDate() + 1)} ${MONTH[new Date().getMonth()]}`;
-    // TO-DO: Must check if date works at end of month/year (potential bug for 30 Jan >> 31 Jan >> 1 Jan >> 2 Feb)
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    ARRIVAL_TIME.innerHTML = `by ${tomorrow.getDate()} ${MONTH[tomorrow.getMonth()]}`;
   }
-  // renderNewValues();
   runCalculator();
 }
 
@@ -228,22 +228,22 @@ function determineToggleType(droplink) {
   }
 }
 
-function resizeiFrame(iframe) {
-  document.getElementById(iframe).contentWindow.postMessage("i need ur height pls", "*");
-}
-
-function iFrameHeightPipe(event) {
-  if (event.origin !== "https://fitfingers.github.io") {
-    return;
-  }
-  document.getElementById(event.data[0]).height = parseInt(event.data[1] * 0.48);
-}
-
 function hidePhoto() {
   if (window.innerWidth >= 926) {
     document.getElementById("my-story-tab-content").style.display = "none";
   }
 }
+
+// function resizeiFrame(iframe) {
+//   document.getElementById(iframe).contentWindow.postMessage("i need ur height pls", "*");
+// }
+
+// function iFrameHeightPipe(event) {
+//   if (event.origin !== "https://fitfingers.github.io") {
+//     return;
+//   }
+//   document.getElementById(event.data[0]).height = parseInt(event.data[1] * 0.48);
+// }
 
 
 
@@ -252,8 +252,8 @@ function hidePhoto() {
 
 window.addEventListener("resize", menuTypeQuery);
 window.addEventListener("resize", hidePhoto);
-window.addEventListener("resize", () => resizeiFrame("cash-register"));
-window.addEventListener("message", iFrameHeightPipe);
+// window.addEventListener("resize", () => resizeiFrame("cash-register"));
+// window.addEventListener("message", iFrameHeightPipe);
 
 [...CURRENCY_BUTTONS].map(button => button.addEventListener("change", runCalculator));
 
@@ -277,11 +277,5 @@ document.getElementById("show-fee-button").addEventListener("click", toggleFeeBr
 window.onload = function() {
   resetInput();
   menuTypeQuery();
-  resizeiFrame("cash-register");
+  // resizeiFrame("cash-register");
 }
-
-// NEXT FEATURE: Reverse calculation, so user inputs receive value and is told how much to send
-
-// NEXT FEATURE: Check on date setup (does date rollover months correctly?)
-
-// NEXT FEATURE: Learn how to add API to allow for up-to-date exchange rates
