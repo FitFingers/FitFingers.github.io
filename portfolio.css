@@ -363,7 +363,7 @@ h1::after {
 }
 
 #caesar-cipher-tab-content {
-  display: block;
+  display: none;
   margin-bottom: -218px;
 }
 
@@ -430,7 +430,7 @@ h1::after {
 }
 
 #money-remit-tab-content {
-  display: none;
+  display: block;
 }
 
 .cash-value-box {
