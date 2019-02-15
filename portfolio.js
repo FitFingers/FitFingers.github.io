@@ -21,6 +21,7 @@ const ARRIVAL_TIME = document.getElementById("arrival-time");
 const CLICKABLE_OBJECTS = document.querySelectorAll("[tabindex]");
 const CASH_REGISTER = document.getElementById("cash-register");
 
+const REQ = new XMLHttpRequest();
 const BASE_CHARGE = 0.8;
 const MONTH = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const EXCHANGE_RATES = {
@@ -34,8 +35,8 @@ let isFeeDetailVisible = false;
 let isMenuVisible = false;
 let menuType = "";
 let transferSpeed = 0.005;
+let exRate = 0;
 let tomorrow = new Date();
-
 
 
 
@@ -110,12 +111,24 @@ function getReceiveCurrency() {
   return document.getElementById("output-currency-select").value;
 }
 
-function getExchangeRate() {
-  return (EXCHANGE_RATES[getReceiveCurrency()]/EXCHANGE_RATES[getSendCurrency()]).toFixed(5);
+// Maybe a better method would be, on the server-side, to update an EX_RATE object every x minutes and to then resend it to the client-side in bacthes every few minutes, rather than the client changing currencies and waiting a second or two between each change. This would mean the change is almost instant (as the data is stored on their computer) and improves UX and decrease the risk of the API being slow/overloaded/broken.
+function getExRate(value, callback) {
+  REQ.onload = () => {
+    if (REQ.readyState === 4 && REQ.status === 200) {
+      callback(value, REQ.response);
+    }
+  }
+  REQ.open("GET", `https://free.currencyconverterapi.com/api/v6/convert?q=${getSendCurrency()}_${getReceiveCurrency()}&compact=ultra&apiKey=4bee894984d26fd53193`, true);
+  REQ.send();
+}
+
+function setExRate(value, result) {
+  exRate = JSON.parse(result)[`${getSendCurrency()}_${getReceiveCurrency()}`].toFixed(5);
+  renderNewValues(value);
 }
 
 function calculateReceiveValue(val) {
-  return (calculateConvertValue(val) * getExchangeRate()).toFixed(2);
+  return (calculateConvertValue(val) * exRate).toFixed(2);
 }
 
 // Random savings of 4.7% for demo
@@ -125,19 +138,21 @@ function calculateSavings(val) {
 
 // Update the DOM with newly-calculated values
 function renderNewValues(input) {
+  const SEND = getSendCurrency();
+  
   if (isThereAnError(input) || isInputInvalid(input)) { return };
 
   document.getElementById("fee-value").innerHTML =
-    `-${calculateFee(input)} ${getSendCurrency()}`;
+    `-${calculateFee(input)} ${SEND}`;
 
   document.getElementById("amount-to-convert").innerHTML =
-    `${calculateConvertValue(input)} ${getSendCurrency()}`;
+    `${calculateConvertValue(input)} ${SEND}`;
 
   document.getElementById("exchange-rate").innerHTML =
-    getExchangeRate();
+    exRate;
 
   document.getElementById("total-savings").innerHTML =
-    `${calculateSavings(input)} ${getSendCurrency()}`;
+    `${calculateSavings(input)} ${SEND}`;
 
   OUTPUT_VALUE.value = calculateReceiveValue(input);
 }
@@ -176,7 +191,8 @@ function resetInput(val) {
 
 function runCalculator() {
   const INPUT_VALUE = document.getElementById("input-value").value || "1000";
-  renderNewValues(INPUT_VALUE);
+  // renderNewValues(INPUT_VALUE);
+  getExRate(INPUT_VALUE, setExRate);
 }
 
 function toggleFeeBreakdown() {
@@ -228,12 +244,6 @@ function determineToggleType(droplink) {
   }
 }
 
-function hidePhoto() {
-  if (window.innerWidth >= 926) {
-    document.getElementById("my-story-tab-content").style.display = "none";
-  }
-}
-
 // function resizeiFrame(iframe) {
 //   document.getElementById(iframe).contentWindow.postMessage("i need ur height pls", "*");
 // }
@@ -244,6 +254,12 @@ function hidePhoto() {
 //   }
 //   document.getElementById(event.data[0]).height = parseInt(event.data[1] * 0.48);
 // }
+
+function hidePhoto() {
+  if (window.innerWidth >= 926) {
+    document.getElementById("my-story-tab-content").style.display = "none";
+  }
+}
 
 
 
@@ -275,6 +291,7 @@ document.getElementById("show-fee-button").addEventListener("click", toggleFeeBr
 
 // WINDOW.ONLOAD/PAGE SETUP
 window.onload = function() {
+  getExRate(setExRate);
   resetInput();
   menuTypeQuery();
   // resizeiFrame("cash-register");
