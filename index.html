@@ -76,7 +76,7 @@
         <!-- Left side of hero page -->
         <div id="information-container">
           <header autofocus>
-            <h1>Hi,<br>I'm James;<br>A Web Developer</h1>
+            <h1 id="title">Hi,<br>I'm James;<br>A Web Developer</h1>
           </header>
 
           <span id="desktop-introduction" class="introduction"><p>Based in Munich, I'm a <a href="https://github.com/FitFingers" target="_blank" class="logo-link" tabindex="6">Front-end Web Developer</a> with a passion for building custom sites from HTML5, CSS3 and JavaScript.</p></span>
@@ -93,7 +93,7 @@
             <figure id="learning-figure" class="accreditation">
               <i class="fas fa-book"></i>
               <figcaption>Always building, forever learning<br>
-                <a href="https://codepen.io/fitfingers/" target="_blank" class="logo-link" tabindex="9">Check it out</a></figcaption>
+              <a href="https://codepen.io/fitfingers/" target="_blank" class="logo-link" tabindex="9">Check it out</a></figcaption>
             </figure>
           </div>
         </div>
@@ -102,7 +102,7 @@
         <div id="floating-calculator">
           
           <div id="project-tab-container">
-            <span id="caesar-cipher-tab" class="project-tab selected-tab" tabindex="10">
+            <span id="caesar-cipher-tab" class="project-tab" tabindex="10">
               <i class="fas fa-exchange-alt tab-icon"></i>
               <p class="tab-text">Caesar cipher</p>
             </span>
@@ -110,7 +110,7 @@
               <i class="fas fa-cash-register tab-icon"></i>
               <p class="tab-text">Cash register</p>
             </span>
-            <span id="money-remit-tab" class="project-tab" tabindex="12">
+            <span id="money-remit-tab" class="project-tab selected-tab" tabindex="12">
               <i class="fas fa-money-bill-alt tab-icon"></i>
               <p class="tab-text">Money remit</p>
             </span>
@@ -140,7 +140,7 @@
                 </select>
 
               <p>You send</p>
-              <input id="input-value" oninput="renderNewValues(this.value)" type="text" onfocus="this.placeholder=''" onblur="resetInput(this.value)" tabindex="15"></input>
+              <input id="input-value" oninput="runCalculator()" type="text" onfocus="this.placeholder=''" onblur="resetInput(this.value)" tabindex="15"></input>
             </div>
 
             <div id="fee-bullet-point-line">
